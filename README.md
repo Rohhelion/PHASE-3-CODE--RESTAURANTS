@@ -1,50 +1,76 @@
+# Object Relations Code Challenge - Restaurants
 
-Object Relations Code Challenge - Restaurants
-Welcome to the Object Relations Code Challenge - Restaurants project! This project involves building a Yelp-style domain to manage information about restaurants, customers, and reviews. The goal is to practice object-oriented programming concepts, such as class relationships, instance methods, and class methods in Python.
+## Introduction
 
-Project Overview
+Welcome to the Object Relations Code Challenge - Restaurants project! In this project, we'll be building a Yelp-style domain to manage information about restaurants, customers, and reviews. The goal is to practice object-oriented programming concepts using Python.
+
+## Project Overview
+
 In this project, we have three main models:
 
-Restaurant: Represents a restaurant and has a one-to-many relationship with Review.
-Customer: Represents a customer and has a one-to-many relationship with Review.
-Review: Represents a review given by a customer for a specific restaurant.
-Getting Started
-Clone this repository to your local machine:
+- `Restaurant`: Represents a restaurant and has a one-to-many relationship with `Review`.
+- `Customer`: Represents a customer and has a one-to-many relationship with `Review`.
+- `Review`: Represents a review given by a customer for a specific restaurant.
 
-bash
-Copy code
-git clone https://github.com/your-username/restaurant-reviews.git
-Navigate to the project directory:
+## Class Definitions
 
-bash
-Copy code
-cd restaurant-reviews
-Install the required dependencies using the provided Pipfile:
+### `Customer`
 
-Copy code
-pipenv install
-Features
-This project implements the following features:
+- Properties:
+  - `given_name`: The given name of the customer.
+  - `family_name`: The family name of the customer.
+  - `reviews`: A list of reviews written by the customer.
+  
+- Methods:
+  - `__init__(self, given_name, family_name)`: Initializes a new `Customer` instance.
+  - `full_name(self)`: Returns the full name of the customer.
+  - `add_review(self, restaurant, rating)`: Adds a review for a restaurant.
+  - `restaurants(self)`: Returns a unique list of restaurants reviewed by the customer.
+  - `num_reviews(self)`: Returns the total number of reviews authored by the customer.
+  - `find_by_name(cls, name)`: Returns the first customer with a matching full name.
+  - `find_all_by_given_name(cls, name)`: Returns a list of customers with a matching given name.
+  - `all()`: Returns a list of all customer instances.
 
-Creating instances of Restaurant, Customer, and Review.
-Adding reviews for restaurants by customers using the add_review method.
-Retrieving information about customers, restaurants, and reviews.
-Displaying average star ratings for restaurants.
-Finding customers and restaurants by name.
-Usage
-Define the classes: Make sure that the customer.py, restaurant.py, and review.py files contain the necessary class definitions.
+### `Restaurant`
 
-Run the testing.py script to test the implemented features:
+- Properties:
+  - `name`: The name of the restaurant.
+  
+- Methods:
+  - `__init__(self, name)`: Initializes a new `Restaurant` instance.
+  - `reviews(self)`: Returns a list of all reviews for the restaurant.
+  - `customers(self)`: Returns a unique list of customers who reviewed the restaurant.
+  - `average_star_rating(self)`: Returns the average star rating for the restaurant.
+  - `all()`: Returns a list of all restaurant instances.
 
-Copy code
-python testing.py
-This script will create instances of customers and restaurants, add reviews, and display information about the created objects.
+### `Review`
 
-Contributing
-If you'd like to contribute to this project, you can fork the repository and submit pull requests with your improvements.
+- Properties:
+  - `customer`: The customer who wrote the review.
+  - `restaurant`: The restaurant being reviewed.
+  - `rating`: The rating given in the review.
+  
+- Methods:
+  - `__init__(self, customer, restaurant, rating)`: Initializes a new `Review` instance.
+  - `customer(self)`: Returns the customer object associated with the review.
+  - `restaurant(self)`: Returns the restaurant object associated with the review.
+  - `all()`: Returns a list of all review instances.
 
-License
-This project is licensed under the MIT License. Feel free to use, modify, and distribute it as needed.
+## Usage
 
-Acknowledgments
-This project was inspired by the concept of Yelp and the need to practice object-oriented programming in Python.EEEEEEE
+To use the project, follow these steps:
+
+1. Clone the repository to your local machine.
+2. Navigate to the project directory.
+3. Install the required dependencies using the provided Pipfile.
+4. Define the classes in the corresponding Python files: `customer.py`, `restaurant.py`, and `review.py`.
+5. Run the `testing.py` script to test the implemented features. This script creates instances of customers and restaurants, adds reviews, and displays information about the created objects.
+
+## Contributing
+
+Feel free to contribute to this project by forking the repository and submitting pull requests with your improvements.
+
+## License
+
+This project is licensed under the MIT License. You're free to use, modify, and distribute it as needed.
+
