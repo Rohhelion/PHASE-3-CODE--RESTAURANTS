@@ -66,11 +66,4 @@ To use the project, follow these steps:
 4. Define the classes in the corresponding Python files: `customer.py`, `restaurant.py`, and `review.py`.
 5. Run the `testing.py` script to test the implemented features. This script creates instances of customers and restaurants, adds reviews, and displays information about the created objects.
 
-## Contributing
-
-Feel free to contribute to this project by forking the repository and submitting pull requests with your improvements.
-
-## License
-
-This project is licensed under the MIT License. You're free to use, modify, and distribute it as needed.
 
